@@ -1,0 +1,39 @@
+body{
+    margin: 0;
+    background-color: black;
+    overflow: hidden;
+}
+
+.panel{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    color: lime;
+    font-family: Arial, sans-serif;
+}
+
+.panel input{
+    width: 60px;
+    padding: 6px;
+    background: #111;
+    color: lime;
+    border: 1px solid lime;
+    border-radius: 4px;
+}
+
+.panel button{
+    padding: 8px 16px;
+    background: lime;
+    color: black;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}

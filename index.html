@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Labirint</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="panel">
+        <label>Width <input id="inputW" type="number" min="2" max="60" value="15"></label>
+        <label>Height <input id="inputH" type="number" min="2" max="60" value="15"></label>
+        <label>Teleport back, % <input id="inputT" type="number" min="0" max="100" value="30"></label>
+        <button id="btnGenerate">Generate</button>
+        <button id="btnFind">Find short path</button>
+        <button id="save">Save png</button>
+
+        <select name="Speed" id="speedSelect">
+            <option value="250">Slow</option>
+            <option value="20">Fast</option>
+            <option value="-1">Instant</option>
+        </select>
+    </div>
+
+    <canvas id="canvas"></canvas>
+    <script src="script.js"></script>
+</body>
+</html>
