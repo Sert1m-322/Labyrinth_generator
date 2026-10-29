@@ -280,6 +280,8 @@ const start = () => {
     first = true
     pathReady = false;
     isReady = false
+    punkte = [];
+
     clearTimeout(timerId)
     cols = clamp(Number(inputW.value))
     rows = clamp(Number(inputH.value))
@@ -301,6 +303,7 @@ const start = () => {
 btnGenerate.addEventListener("click", () =>{
     speed = +(speedSelect.value)
     start()
+
 })
 
 addEventListener("keydown", (e) => {
@@ -453,7 +456,15 @@ const stepDraw = () =>{
 
 
 btnFind.addEventListener("click", () =>{
-    if(punkte.length !== 2){return}
+
+if(punkte.length !== 2){
+    punkte = [
+        {kx: 0, ky: 0},
+        {kx: cols - 1, ky: rows - 1}
+    ]
+    first = true
+}
+
     if(isReady === false){return}
 
     skoka = 0
