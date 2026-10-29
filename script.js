@@ -28,8 +28,9 @@ const btnGenerate = document.querySelector("#btnGenerate")
 const btnFind = document.querySelector("#btnFind")
 const btnSave = document.querySelector("#save")
 const speedSelect = document.querySelector("#speedSelect")
+const scoreT = document.querySelector("#score")
 
-let speed = 200
+let speed = +(speedSelect.value)
 
 speedSelect.addEventListener("change", () =>{
     speed = +(speedSelect.value)
@@ -158,7 +159,6 @@ const puhh = (x, y) =>{
 }
 
 const generatorStep = () =>{
-    speed = +(speedSelect.value)
 
     let canUp = false
     let canDown = false
@@ -353,17 +353,24 @@ addEventListener("click", (e) =>{
 })
 
 let proverka
+let skoka = 0
 
 const drawPath = () => {
+
     ctx.clearRect(0,0, WIDTH, HEIGHT)
     draw()
+
     let cur = {kx: punkte[1].kx, ky: punkte[1].ky}
     ctx.beginPath()
     ctx.moveTo((otstupX + size / 2) + cur.kx * size, (otstupY + size / 2) + cur.ky * size)
     while(map[cur.kx][cur.ky].parent !== null){
         cur = map[cur.kx][cur.ky].parent
         ctx.lineTo((otstupX + size / 2) + cur.kx * size, (otstupY + size / 2) + cur.ky * size)
+        skoka++
     }
+    console.log(skoka);
+    scoreT.textContent = skoka +1
+
     ctx.strokeStyle = "yellow"
     ctx.lineWidth = 4
     ctx.stroke()
@@ -449,6 +456,7 @@ btnFind.addEventListener("click", () =>{
     if(punkte.length !== 2){return}
     if(isReady === false){return}
 
+    skoka = 0
     speed = +(speedSelect.value)
     pathReady = false
     proverka = [punkte[0]];
